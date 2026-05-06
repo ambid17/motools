@@ -1,7 +1,21 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(head *)"
+      "PowerShell(head *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\ambid\\\\Documents\\\\GitHub\\\\motools\\\\motool-web\" -Recurse -Directory)",
+      "Bash(Select-Object FullName)",
+      "Bash(ConvertTo-Csv -NoTypeInformation)",
+      "Bash(Select-Object -Skip 1)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\ambid\\\\Documents\\\\GitHub\\\\motools\\\\Motool-api\\\\\" -Recurse -Directory | Select-Object -ExpandProperty FullName | ForEach-Object { $_ -replace [regex]::Escape\\(\"C:\\\\Users\\\\ambid\\\\Documents\\\\GitHub\\\\motools\\\\Motool-api\\\\\"\\), \"\" } | Sort-Object)",
+      "Bash(awk '{print $NF}')",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\ambid\\\\Documents\\\\GitHub\\\\motools\\\\Motool-api\\\\\" -Force | Where-Object { -not $_.PSIsContainer } | Select-Object -ExpandProperty Name | Sort-Object)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\ambid\\\\Documents\\\\GitHub\\\\motools\\\\Motool-api\\\\\" -Directory -Force | Where-Object { $_.Name -notmatch \"^\\(obj|bin|\\\\.vs|\\\\.git\\)\" } | Select-Object -ExpandProperty Name)",
+      "Bash(dotnet add *)",
+      "Bash(dotnet build *)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm build *)",
+      "Bash(node -e \"const m = require\\('@auth/pg-adapter'\\); console.log\\(Object.keys\\(m\\)\\)\")",
+      "Bash(Remove-Item *)"
     ]
   }
 }
